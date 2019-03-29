@@ -163,7 +163,7 @@ namespace Leap.Unity {
     }
 
     private void transformSingleAnchor(PinchDetector singlePinch) {
-      _anchor.position = singlePinch.Position;
+      // _anchor.position = singlePinch.Position;
 
       switch (_oneHandedRotationMethod) {
         case RotationMethod.None:
@@ -178,7 +178,7 @@ namespace Leap.Unity {
           break;
       }
 
-      _anchor.localScale = Vector3.one;
+      // _anchor.localScale = Vector3.one;
     }
   }
 }
