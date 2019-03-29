@@ -1469,10 +1469,10 @@ MonoBehaviour:
   _isAttached: 1
   _anchor: {fileID: 1361160568}
   _anchorGroup: {fileID: 232371140}
-  maxAnchorRange: 0.3
+  maxAnchorRange: 0.2
   useTrajectory: 1
   _motionlessRangeFraction: 0.4
-  _maxMotionlessRange: 0.120000005
+  _maxMotionlessRange: 0.080000006
   _maxAttachmentAngle: 66
   _alwaysAttachDistance: 0
   lockToAnchor: 0
@@ -13873,10 +13873,10 @@ MonoBehaviour:
   _isAttached: 1
   _anchor: {fileID: 516011622}
   _anchorGroup: {fileID: 138489023}
-  maxAnchorRange: 0.3
+  maxAnchorRange: 0.2
   useTrajectory: 1
   _motionlessRangeFraction: 0.4
-  _maxMotionlessRange: 0.120000005
+  _maxMotionlessRange: 0.080000006
   _maxAttachmentAngle: 66
   _alwaysAttachDistance: 0
   lockToAnchor: 0
@@ -14742,10 +14742,10 @@ MonoBehaviour:
   _isAttached: 1
   _anchor: {fileID: 1590726617}
   _anchorGroup: {fileID: 1715738619}
-  maxAnchorRange: 0.3
+  maxAnchorRange: 0.2
   useTrajectory: 1
   _motionlessRangeFraction: 0.4
-  _maxMotionlessRange: 0.120000005
+  _maxMotionlessRange: 0.080000006
   _maxAttachmentAngle: 66
   _alwaysAttachDistance: 0
   lockToAnchor: 0
