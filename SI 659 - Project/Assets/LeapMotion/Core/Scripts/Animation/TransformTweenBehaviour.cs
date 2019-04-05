@@ -25,11 +25,18 @@ namespace Leap.Unity.Animation {
 
     [Tooltip("The transform to which to apply the tweened properties.")]
     public Transform targetTransform;
+    [Tooltip("The material to which to apply the tweened properties.")]
+    public Material targetMaterial;
 
     [Tooltip("The transform whose position/rotation/localScale provide the start state of the tween.")]
     public Transform startTransform;
     [Tooltip("The transform whose position/rotation/localScale provide the end state of the tween.")]
     public Transform endTransform;
+
+    [Tooltip("The color that provides the start state of the tween.")]
+    public Color startColor;
+    [Tooltip("The color that provides the end state of the tween.")]
+    public Color endColor;
 
     public bool startAtEnd = false;
 
@@ -37,6 +44,7 @@ namespace Leap.Unity.Animation {
     public bool tweenLocalPosition = true;
     public bool tweenLocalRotation = true;
     public bool tweenLocalScale    = true;
+    public bool tweenColor    = false;
     [MinValue(0.001F)]
     public float tweenDuration = 0.25F;
     public SmoothType tweenSmoothType = SmoothType.Smooth;
@@ -96,6 +104,8 @@ namespace Leap.Unity.Animation {
 
       if (tweenLocalScale) _tween = _tween.Target(targetTransform)
                                           .LocalScale(startTransform, endTransform);
+      if (tweenColor) _tween = _tween.Target(targetMaterial)
+                                     .Color(startColor, endColor);
 
       // Hook up the UnityEvents to the actual Tween callbacks.
       _tween.OnProgress(OnProgress);

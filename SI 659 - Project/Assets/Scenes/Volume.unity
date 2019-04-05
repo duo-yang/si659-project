@@ -3201,12 +3201,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 516011619}
+  targetMaterial: {fileID: 2100000, guid: 34912d6239cf40e419905e8a23cecd75, type: 2}
   startTransform: {fileID: 1739104827}
   endTransform: {fileID: 1069348325}
+  startColor: {r: 0.8207909, g: 0.31617647, b: 1, a: 0.616}
+  endColor: {r: 0.8207909, g: 0.31617647, b: 1, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.25
   tweenSmoothType: 2
   _eventTable:
@@ -3225,7 +3229,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 1
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - enumValue: 140
@@ -3242,7 +3246,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
 --- !u!1 &412064488
@@ -4305,6 +4309,11 @@ Prefab:
       propertyPath: matchActiveStateWithAttachedObjects
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114398081917619286, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+        type: 2}
+      propertyPath: materialTarget
+      value: 
+      objectReference: {fileID: 857308558}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a, type: 2}
   m_IsPrefabAsset: 0
@@ -5823,6 +5832,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607484172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &608319863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1540534293335100, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1361160564}
 --- !u!1 &612076915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,12 +5865,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 6585363}
+  targetMaterial: {fileID: 0}
   startTransform: {fileID: 2008150454}
   endTransform: {fileID: 717035816}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.2
   tweenSmoothType: 2
   _eventTable:
@@ -5948,6 +5966,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615113861}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &619649354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1540534293335100, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1590726612}
 --- !u!1 &652320598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6481,12 +6504,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1361160565}
+  targetMaterial: {fileID: 0}
   startTransform: {fileID: 1583648319}
   endTransform: {fileID: 1292194651}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.25
   tweenSmoothType: 2
   _eventTable:
@@ -6505,7 +6532,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 1
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - enumValue: 140
@@ -6522,7 +6549,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
 --- !u!1 &685471522
@@ -7021,12 +7048,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1590726613}
+  targetMaterial: {fileID: 0}
   startTransform: {fileID: 1452621522}
   endTransform: {fileID: 829236262}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.25
   tweenSmoothType: 2
   _eventTable:
@@ -7045,7 +7076,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 1
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - enumValue: 140
@@ -7062,7 +7093,7 @@ MonoBehaviour:
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
-            m_CallState: 2
+            m_CallState: 1
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
 --- !u!1 &762116398
@@ -7672,6 +7703,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856346052}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &857308558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1540534293335100, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 516011618}
 --- !u!1 &869529882
 GameObject:
   m_ObjectHideFlags: 0
@@ -11873,6 +11909,11 @@ Prefab:
       propertyPath: matchActiveStateWithAttachedObjects
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114398081917619286, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+        type: 2}
+      propertyPath: materialTarget
+      value: 
+      objectReference: {fileID: 608319863}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a, type: 2}
   m_IsPrefabAsset: 0
@@ -14131,6 +14172,11 @@ Prefab:
       propertyPath: matchActiveStateWithAttachedObjects
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114398081917619286, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a,
+        type: 2}
+      propertyPath: materialTarget
+      value: 
+      objectReference: {fileID: 619649354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec3b9195e40d4f4e9ca839839bfbf6a, type: 2}
   m_IsPrefabAsset: 0
@@ -15737,12 +15783,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1565435144}
+  targetMaterial: {fileID: 0}
   startTransform: {fileID: 22576470}
   endTransform: {fileID: 486015909}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.2
   tweenSmoothType: 2
   _eventTable:
@@ -15862,12 +15912,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1272384240}
+  targetMaterial: {fileID: 0}
   startTransform: {fileID: 890802471}
   endTransform: {fileID: 1867145928}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   startAtEnd: 0
   tweenLocalPosition: 1
   tweenLocalRotation: 1
   tweenLocalScale: 1
+  tweenColor: 0
   tweenDuration: 0.2
   tweenSmoothType: 2
   _eventTable:
