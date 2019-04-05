@@ -6641,6 +6641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393449013}
   - component: {fileID: 1393449012}
+  - component: {fileID: 1393449014}
   m_Layer: 0
   m_Name: RTS Object
   m_TagString: Untagged
@@ -6683,6 +6684,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393449014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393449011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d1212546c08c94c8b52a4451a367ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pinchDetectors:
+  - {fileID: 1503826170}
+  _blockPrefab: {fileID: 1439508119376104, guid: 551620b2c6bb7ac49aaac838bab9f143,
+    type: 2}
 --- !u!1 &1404246569
 GameObject:
   m_ObjectHideFlags: 0
