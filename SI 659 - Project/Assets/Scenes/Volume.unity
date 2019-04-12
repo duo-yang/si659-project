@@ -4511,6 +4511,11 @@ Prefab:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 11892916}
+    - target: {fileID: 114250606105194940, guid: 551620b2c6bb7ac49aaac838bab9f143,
+        type: 2}
+      propertyPath: lockToAnchor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 551620b2c6bb7ac49aaac838bab9f143, type: 2}
   m_IsPrefabAsset: 0
@@ -4865,6 +4870,11 @@ Prefab:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 11892916}
+    - target: {fileID: 114740000224208396, guid: 8c42d874e297f924a963877e7e3210f8,
+        type: 2}
+      propertyPath: lockToAnchor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c42d874e297f924a963877e7e3210f8, type: 2}
   m_IsPrefabAsset: 0
@@ -5039,6 +5049,11 @@ Prefab:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 11892916}
+    - target: {fileID: 114131350333191772, guid: 117e53b5419919c419e136b3501a37f0,
+        type: 2}
+      propertyPath: lockToAnchor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117e53b5419919c419e136b3501a37f0, type: 2}
   m_IsPrefabAsset: 0
@@ -6697,8 +6712,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pinchDetectors:
   - {fileID: 1503826170}
-  _blockPrefab: {fileID: 1439508119376104, guid: 551620b2c6bb7ac49aaac838bab9f143,
-    type: 2}
+  _blockPrefab:
+  - {fileID: 1439508119376104, guid: 551620b2c6bb7ac49aaac838bab9f143, type: 2}
+  - {fileID: 1288107575649634, guid: 8c42d874e297f924a963877e7e3210f8, type: 2}
+  - {fileID: 1999853349184362, guid: 117e53b5419919c419e136b3501a37f0, type: 2}
+  chosenPrefab: 0
+  blockRoot: {fileID: 814782172}
 --- !u!1 &1404246569
 GameObject:
   m_ObjectHideFlags: 0

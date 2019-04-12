@@ -15,7 +15,10 @@ namespace Leap.Unity.DetectionExamples {
     // private Material _material;
 
     [SerializeField]
-    private GameObject _blockPrefab;
+    private GameObject[] _blockPrefab;
+    public int chosenPrefab;
+
+    public GameObject blockRoot;
 
     private DrawState[] _drawStates;
 
@@ -33,7 +36,7 @@ namespace Leap.Unity.DetectionExamples {
       _drawStates = new DrawState[_pinchDetectors.Length];
       for (int i = 0; i < _pinchDetectors.Length; i++)
       {
-        _drawStates[i] = new DrawState(this, _blockPrefab);
+        _drawStates[i] = new DrawState(this, _blockPrefab, blockRoot);
       }
     }
 
@@ -65,16 +68,19 @@ namespace Leap.Unity.DetectionExamples {
     private class DrawState
     {
       private PinchSpawn _parent;
-      private GameObject _prefab;
+      private GameObject _root;
+      private GameObject[] _prefabs;
       private GameObject _blockObj;
 
-      public DrawState(PinchSpawn parent, GameObject prefab) {
+      public DrawState(PinchSpawn parent, GameObject[] prefabs, GameObject root) {
         _parent = parent;
-        _prefab = prefab;
+        _prefabs = prefabs;
+        _root = root;
       }
 
       public GameObject BeginNewBlock(Vector3 position) {
-        _blockObj = (GameObject) Instantiate(_prefab, position, Quaternion.identity);
+        _blockObj = (GameObject) Instantiate(_prefabs[_parent.chosenPrefab], position, Quaternion.identity);
+        _blockObj.transform.parent = _root.transform;
         // _blockObj.AddComponent<MeshRenderer>().sharedMaterial = _parent._material;
 
         return _blockObj;
