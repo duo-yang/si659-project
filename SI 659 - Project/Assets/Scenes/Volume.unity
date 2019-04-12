@@ -1150,7 +1150,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 156778297}
-  m_Text: 'VOLUMN
+  m_Text: 'VOLUME
 
     VOXEL'
   m_OffsetZ: 0
