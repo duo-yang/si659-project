@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour {
 
+  public static float lowerBound = -1.5F;
+
   public ColorBehavior colorManager;
+  public bool isPicker = false;
 
   private GameObject _innerCube;
   private Light _pointLight;
   private Renderer _rend;
+  private Transform _trans;
 
   private bool _notNull = false;
 
@@ -20,6 +24,7 @@ public class BlockBehavior : MonoBehaviour {
   void Start () {
     _innerCube = this.transform.Find("Cube").gameObject;
     _pointLight = this.transform.Find("Point Light").gameObject.GetComponent<Light>();
+    _trans = this.transform;
     if (_innerCube != null && _pointLight != null) {
       _rend = _innerCube.GetComponent<Renderer>();
       _notNull = true;
@@ -29,7 +34,9 @@ public class BlockBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+    if (PhysicsBehavior.gravityOn() && _trans.position.y < lowerBound) {
+      if (!isPicker) Destroy(gameObject);
+    } 
 	}
 
   public void setColor(Color color) {

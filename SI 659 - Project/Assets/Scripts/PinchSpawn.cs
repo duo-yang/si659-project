@@ -19,6 +19,8 @@ namespace Leap.Unity.DetectionExamples {
     public int chosenPrefab;
 
     public GameObject blockRoot;
+    [SerializeField]
+    private ClearBehavior _clearBehavior;
 
     private DrawState[] _drawStates;
 
@@ -51,6 +53,7 @@ namespace Leap.Unity.DetectionExamples {
         if (detector.DidStartHold)
         {
           drawState.BeginNewBlock(detector.Position);
+          _clearBehavior.newBlock();
         }
 
         if (detector.DidRelease)

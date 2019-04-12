@@ -9,7 +9,7 @@ public class PhysicsBehavior : MonoBehaviour {
   public Color emitColor = Color.black;
 
   private Vector3 _gravity;
-  private bool _gravityOn = false;
+  private static bool _gravityOn = false;
   private Renderer _rend;
 
   // Use this for initialization
@@ -31,6 +31,10 @@ public class PhysicsBehavior : MonoBehaviour {
     if (_rend != null) {
       _rend.material.SetColor("_EmissionColor", _gravityOn ? emitColor : Color.black);
     }
+  }
+
+  public static bool gravityOn() {
+    return _gravityOn;
   }
 
 }
