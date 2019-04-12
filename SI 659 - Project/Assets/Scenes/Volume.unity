@@ -6867,6 +6867,7 @@ GameObject:
   - component: {fileID: 1434207088}
   - component: {fileID: 1434207087}
   - component: {fileID: 1434207086}
+  - component: {fileID: 1434207089}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -6904,7 +6905,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ae962c51f2146e4439603b2865982593, type: 2}
+  - {fileID: 2100000, guid: 6c02e1b8cd414224ea967e9478e99aa3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6945,6 +6946,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1434207084}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1434207089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434207084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72338d347c5b73a43aef776875bfcdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity_Y: -4.905
+  emitColor: {r: 1, g: 0.8530476, b: 0.2117647, a: 0.616}
 --- !u!1 &1439196663
 GameObject:
   m_ObjectHideFlags: 0
@@ -8629,7 +8643,7 @@ GameObject:
   - component: {fileID: 1929425881}
   - component: {fileID: 1929425880}
   m_Layer: 0
-  m_Name: Cube UI Button Left
+  m_Name: Gravity Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8707,31 +8721,9 @@ MonoBehaviour:
   _OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1565459630}
-        m_MethodName: set_useGravity
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 1642989158}
-        m_MethodName: set_useGravity
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 183389568}
-        m_MethodName: set_useGravity
-        m_Mode: 6
+      - m_Target: {fileID: 1434207089}
+        m_MethodName: toggleGravity
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
