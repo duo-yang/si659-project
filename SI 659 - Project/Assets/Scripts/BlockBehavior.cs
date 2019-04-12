@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Leap.Unity.Interaction;
 using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour {
 
-  public static float lowerBound = -1.5F;
+  public static float lowerBound = -3F;
 
   public ColorBehavior colorManager;
   public bool isPicker = false;
@@ -13,6 +14,7 @@ public class BlockBehavior : MonoBehaviour {
   private Light _pointLight;
   private Renderer _rend;
   private Transform _trans;
+  private Vector3 _origin = new Vector3(-0.2F, -0.15F, 0.35F);
 
   private bool _notNull = false;
 
@@ -35,8 +37,13 @@ public class BlockBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     if (PhysicsBehavior.gravityOn() && _trans.position.y < lowerBound) {
-      if (!isPicker) Destroy(gameObject);
-    } 
+      if (!isPicker) {
+        Destroy(gameObject);
+      }
+    }
+    if (isPicker && Vector3.Distance(_trans.localPosition, _origin) > 0.5) {
+      attach();
+    }
 	}
 
   public void setColor(Color color) {
@@ -45,5 +52,10 @@ public class BlockBehavior : MonoBehaviour {
       _rend.material.SetColor("_EmissionColor", color);
       _pointLight.color = color;
     }
+  }
+
+  public void attach() {
+    GetComponent<InteractionBehaviour>().ReleaseFromGrasp();
+    GetComponent<AnchorableBehaviour>().TryAttach(true);
   }
 }

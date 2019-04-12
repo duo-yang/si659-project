@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Leap.Unity.Examples;
+using Leap.Unity.Animation;
 using UnityEngine;
 
 public class ColorBehavior : MonoBehaviour {
@@ -7,11 +9,18 @@ public class ColorBehavior : MonoBehaviour {
   public static ColorBehavior colorManagerInstance;
 
   public BlockBehavior colorPicker;
+  public ModeBehavior modeController;
+  public SimpleFacingCameraCallbacks facingCamera;
+  public GameObject colorAnchors;
 
   public Color[] palette;
   public int currentColorID = 0;
 
   private int _numColor = 0;
+
+  public TransformTweenBehaviour magentaAnchor;
+  public TransformTweenBehaviour redAnchor;
+  public TransformTweenBehaviour blueAnchor;
 
   void Awake() {
     colorManagerInstance = this;
@@ -39,5 +48,14 @@ public class ColorBehavior : MonoBehaviour {
   public void updateColorID(int colorID) {
     if (colorID >= 0 && colorID < _numColor) currentColorID = colorID;
     if (colorPicker != null) colorPicker.setColor(getColor());
+  }
+
+  public void showColorAnchors() {
+    // Only show on create mode
+    if (modeController.currentMode == 1) {
+      magentaAnchor.PlayForwardAfterDelay(0F);
+      redAnchor.PlayForwardAfterDelay(0.05F);
+      blueAnchor.PlayForwardAfterDelay(0.1F);
+    }
   }
 }

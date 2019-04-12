@@ -10,13 +10,14 @@ public class ClearBehavior : MonoBehaviour {
 
   // public GameObject gravityButton;
   public Color emitColor = Color.black;
+  public Color defaultColor = new Color(0.3F, 0.3F, 0.3F);
 
   private Renderer _rend;
 
   // Use this for initialization
   void Start () {
     _rend = GetComponent<Renderer>();
-    _rend.material.SetColor("_EmissionColor", Color.black);
+    _rend.material.SetColor("_EmissionColor", defaultColor);
   }
 	
 	// Update is called once per frame
@@ -28,7 +29,7 @@ public class ClearBehavior : MonoBehaviour {
     for (int i = blockRoot.transform.childCount - 1; i >= 0; i--) {
       Destroy(blockRoot.transform.GetChild(i).gameObject);
     }
-    if (_rend != null) _rend.material.SetColor("_EmissionColor", Color.black);
+    if (_rend != null) _rend.material.SetColor("_EmissionColor", defaultColor);
     isEmpty = true;
   }
 

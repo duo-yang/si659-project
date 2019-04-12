@@ -7,11 +7,13 @@ public class ModeBehavior : MonoBehaviour {
   public MonoBehaviour[] modeControllers;
   public Color[] modeColors;
   public string[] modeNamesText;
+  public string[] modeInfos;
 
   public TextMesh buttonText;
-  
+  public TextMesh infoText;
+  public int currentMode = 1;
+
   private Renderer _rend;
-  private int _mode = 0;
   private int _numMode = 0;
 
   void OnValidate() {
@@ -27,7 +29,7 @@ public class ModeBehavior : MonoBehaviour {
     if (modeControllers.Length == modeNamesText.Length) {
       _numMode = modeControllers.Length;
     }
-    useMode(_mode);
+    useMode(currentMode);
   }
 	
 	// Update is called once per frame
@@ -40,20 +42,33 @@ public class ModeBehavior : MonoBehaviour {
     for (int i = 0; i < _numMode; i++) {
       modeControllers[i].enabled = (i == mode) ? true : false;
     }
+    // Scale mode
+    if (mode == 0) {
+      ColorBehavior.colorManagerInstance.facingCamera.OnEndFacingCamera.Invoke();
+      // ColorBehavior.colorManagerInstance.colorPicker.enabled = false;
+      // ColorBehavior.colorManagerInstance.colorAnchors.SetActive(false);
+    }
+    // Create mode
+    if (mode == 1) {
+      ColorBehavior.colorManagerInstance.facingCamera.OnBeginFacingCamera.Invoke();
+      // ColorBehavior.colorManagerInstance.colorPicker.enabled = true;
+      // ColorBehavior.colorManagerInstance.colorAnchors.SetActive(true);
+    }
+
     // Set button color
     _rend.material.SetColor("_EmissionColor", (modeColors.Length > mode) ? modeColors[mode] : Color.black);
     // Set button text
     if (buttonText != null) buttonText.text = modeNamesText[mode];
-
+    if (infoText != null) infoText.text = (modeInfos.Length > mode) ? modeInfos[mode] : "";
   }
 
   public void toggleMode () {
-    if (_mode < _numMode - 1) {
-      _mode++;
+    if (currentMode < _numMode - 1) {
+      currentMode++;
     } else {
-      _mode = 0;
+      currentMode = 0;
     }
-    useMode(_mode);
+    useMode(currentMode);
   }
 
 }
