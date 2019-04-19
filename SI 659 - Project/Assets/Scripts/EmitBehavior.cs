@@ -1,43 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap.Unity.Interaction;
 
 public class EmitBehavior : MonoBehaviour {
 
-  public float intensityMin = 0.5F;
-  public float intensityMax = 2.5F;
-  public float lightMin = 0F;
-  public float lightMax = 0.8F;
-  public float defaultIntensity = 1F;
+  public InteractionSlider Slider;
 
-  public TextMesh intensityText;
+  public float legendMin = 0F;
+  public float legendMax = 0.8F;
+  public float defaultLegend = 0.2F;
+  public bool useSliderDefault = false;
 
-  private float _defaultLight = 0F;
-  private Color _buttonColor = Color.black;
+  public ColorBehavior colorManager;
+
+  public TextMesh ValueText;
+
+  public enum ValueChannel { Light, Hue };
+  public ValueChannel thisChannel = ValueChannel.Light;
+
+  private Color _legendColor = Color.black;
   private Renderer _rend;
+  private bool _reverse = false;
 
   // Use this for initialization
   void Start () {
+    colorManager = ColorBehavior.colorManagerInstance;
     _rend = GetComponent<Renderer>();
-    _defaultLight = mapIntensity(defaultIntensity);
-    setButtonColor(_defaultLight);
-    if (intensityText != null) intensityText.text = defaultIntensity.ToString();
+    if (Slider.maxHorizontalValue < Slider.minHorizontalValue) {
+      _reverse = true;
+      float temp = legendMin;
+      legendMin = legendMax;
+      legendMax = temp;
+    }
+    if (useSliderDefault) defaultLegend = mapping(Slider.defaultHorizontalValue);
+    setLegendColor(defaultLegend, thisChannel);
+    if (ValueText != null) ValueText.text = Slider.defaultHorizontalValue.ToString();
   }
 	
-	float mapIntensity(float intensity) {
-    if (intensity < intensityMin || intensity > intensityMax) return _defaultLight;
-    return (intensity - intensityMin) / (intensityMax - intensityMin) * (lightMax - lightMin) + lightMin;
+	float mapping(float value) {
+    if (!_reverse && (value < Slider.minHorizontalValue || value > Slider.maxHorizontalValue)) return defaultLegend;
+    if (_reverse && (value > Slider.minHorizontalValue || value < Slider.maxHorizontalValue)) return defaultLegend;
+    return (value - Slider.minHorizontalValue) / (Slider.maxHorizontalValue - Slider.minHorizontalValue) * (legendMax - legendMin) + legendMin;
   }
 
-  void setButtonColor(float light) {
-    _buttonColor.r = light;
-    _buttonColor.g = light;
-    _buttonColor.b = light;
+  void setLegendColor(float legendValue, ValueChannel channel) {
+    if (channel == ValueChannel.Light) {
+      _legendColor = new Color(legendValue, legendValue, legendValue);
+      _rend.material.SetColor("_EmissionColor", _legendColor);
+    } else if (channel == ValueChannel.Hue) {
+      if (colorManager != null) _legendColor = Color.HSVToRGB(legendValue, colorManager.currentSaturation, colorManager.currentValue);
+      Debug.Log(Slider.minHorizontalValue + ", " + Slider.maxHorizontalValue + ", " + legendMin + ", " + legendMax);
+      _rend.material.SetColor("_EmissionColor", _legendColor);
+    }
   }
 
   public void updateButtonLight(float intensity) {
-    setButtonColor(mapIntensity(intensity));
-    _rend.material.SetColor("_EmissionColor", _buttonColor);
-    if (intensityText != null) intensityText.text = intensity.ToString("F");
+    if (thisChannel != ValueChannel.Light) return;
+    setLegendColor(mapping(intensity), ValueChannel.Light);
+    if (ValueText != null) ValueText.text = intensity.ToString("F");
+  }
+
+  public void updateButtonColor(float hue) {
+    if (thisChannel != ValueChannel.Hue) return;
+    setLegendColor(mapping(hue), ValueChannel.Hue);
+    if (ValueText != null) ValueText.text = hue.ToString("F");
   }
 }
