@@ -10,6 +10,7 @@ public class ColorBehavior : MonoBehaviour {
   public static ColorBehavior colorManagerInstance;
 
   public BlockBehavior colorPicker;
+  public OnboardControl onboards;
   public ModeBehavior modeController;
   public SimpleFacingCameraCallbacks facingCamera;
   public PinchDetector PinchDetectorA;
@@ -18,7 +19,7 @@ public class ColorBehavior : MonoBehaviour {
   public GameObject colorAnchors;
 
   public Color[] palette;
-  public int currentColorID = 0;
+  public int currentColorID = 1;
   public Color currentColor = Color.white;
   public float currentHue = 0f;
   public float currentSaturation = 0f;

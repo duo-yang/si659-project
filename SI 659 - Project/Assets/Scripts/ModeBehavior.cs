@@ -45,6 +45,7 @@ public class ModeBehavior : MonoBehaviour {
     // Scale mode
     if (mode == 0) {
       ColorBehavior.colorManagerInstance.facingCamera.OnEndFacingCamera.Invoke();
+      ColorBehavior.colorManagerInstance.onboards.updateOnboard(5);
       // ColorBehavior.colorManagerInstance.colorPicker.enabled = false;
       // ColorBehavior.colorManagerInstance.colorAnchors.SetActive(false);
     }

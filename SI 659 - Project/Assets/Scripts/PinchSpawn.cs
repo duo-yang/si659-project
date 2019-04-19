@@ -75,6 +75,12 @@ namespace Leap.Unity.DetectionExamples {
         var drawState = _drawStates[i];
 
         if (detector.DidStartHold) {
+          if (!colorManager.onboards.criteria[1])
+          {
+            colorManager.onboards.updateCriteria(1);
+            colorManager.onboards.updateOnboard(1);
+          }
+
           GameObject closestVoxel = FindClosestVoxel(detector.Position);
           float closeDis = 0;
           float noSpawnRange = 0;
@@ -107,8 +113,11 @@ namespace Leap.Unity.DetectionExamples {
           _scaling = false;
         }
 
-        if (detector.IsHolding)
-        {
+        if (detector.IsHolding) {
+          if (!colorManager.onboards.criteria[1]) {
+            colorManager.onboards.updateCriteria(1);
+            colorManager.onboards.updateOnboard(1);
+          }
           if (_didSpawn[i]) {
             drawState.UpdateBlock(detector.Position);
           } else {
@@ -117,7 +126,7 @@ namespace Leap.Unity.DetectionExamples {
         }
       }
 
-      if (!spawnable && colorManager != null && colorManager.modeController.currentMode == 1) {
+      if (!spawnable && colorManager != null && colorManager.modeController.currentMode == 1 && _pinchDetectorA.IsActive && _pinchDetectorB.IsActive) {
         bool sameVoxel = true;
         // Debug.Log("Mode checked");
         for (int j = 1; j < movableVoxel.Length; j++) {
@@ -131,8 +140,14 @@ namespace Leap.Unity.DetectionExamples {
         if (sameVoxel) {
           // Debug.Log("Same voxelS");
           // Debug.Log(movableVoxel[0].transform.localScale);
-          if (_scaling) movableVoxel[0].transform.localScale = _startScale * Vector3.Distance(_pinchDetectorA.Position, _pinchDetectorB.Position) / _distanceRef;
-          movableVoxel[0].transform.position = (_pinchDetectorA.Position + _pinchDetectorB.Position) / 2.0f;
+          if (_scaling) {
+            if (!colorManager.onboards.criteria[2]) {
+              colorManager.onboards.updateCriteria(2);
+              colorManager.onboards.updateOnboard(2);
+            }
+            movableVoxel[0].transform.localScale = _startScale * Vector3.Distance(_pinchDetectorA.Position, _pinchDetectorB.Position) / _distanceRef;
+            movableVoxel[0].transform.position = (_pinchDetectorA.Position + _pinchDetectorB.Position) / 2.0f;
+          }
         }
 
       }
