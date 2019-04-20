@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PhysicsBehavior : MonoBehaviour {
 
-  public float gravity_Y = -4.905F;
+  // public float gravity_Y = -4.905F;
+  public float gravity_Y = 0F;
   // public GameObject gravityButton;
   public Color emitColor = Color.black;
   public Color defaultColor = new Color(0.3F, 0.3F, 0.3F);
 
   private Vector3 _gravity;
-  private static bool _gravityOn = false;
+  public static bool _gravityOn = false;
 
   private Renderer _rend;
 
@@ -26,6 +27,10 @@ public class PhysicsBehavior : MonoBehaviour {
 	void Update () {
 		
 	}
+
+  private void FixedUpdate() {
+    
+  }
 
   public void toggleGravity () {
     _gravityOn = !_gravityOn;

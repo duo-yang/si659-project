@@ -46,12 +46,14 @@ public class ModeBehavior : MonoBehaviour {
     if (mode == 0) {
       ColorBehavior.colorManagerInstance.facingCamera.OnEndFacingCamera.Invoke();
       ColorBehavior.colorManagerInstance.onboards.updateOnboard(5);
+      ColorBehavior.colorManagerInstance.arrangeManager.arrangeBlocks();
       // ColorBehavior.colorManagerInstance.colorPicker.enabled = false;
       // ColorBehavior.colorManagerInstance.colorAnchors.SetActive(false);
     }
     // Create mode
     if (mode == 1) {
       ColorBehavior.colorManagerInstance.facingCamera.OnBeginFacingCamera.Invoke();
+      ColorBehavior.colorManagerInstance.arrangeManager.arrangeBlocks();
       // ColorBehavior.colorManagerInstance.colorPicker.enabled = true;
       // ColorBehavior.colorManagerInstance.colorAnchors.SetActive(true);
     }

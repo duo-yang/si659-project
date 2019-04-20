@@ -10,6 +10,9 @@ public class ColorBehavior : MonoBehaviour {
   public static ColorBehavior colorManagerInstance;
 
   public BlockBehavior colorPicker;
+  public ArrangeBehavior arrangeManager;
+  public PhysicsBehavior physicsManager;
+  public AudioManager audioManager;
   public OnboardControl onboards;
   public ModeBehavior modeController;
   public SimpleFacingCameraCallbacks facingCamera;
