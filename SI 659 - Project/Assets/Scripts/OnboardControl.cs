@@ -123,6 +123,7 @@ public class OnboardControl : MonoBehaviour
       onboards[onboardIndex].PlayBackward();
       onboards[onboardIndex + 1].PlayForwardAfterDelay(tweenDelay);
       currentOnboard++;
+      Debug.Log("current onboard: " + currentOnboard + ", onboard index: " + onboardIndex);
     }
   }
 

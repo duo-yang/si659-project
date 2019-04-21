@@ -28,7 +28,7 @@ namespace Leap.Unity.DetectionExamples {
     public float noSpawnRangeMultiplier = 1.5f;
 
     [SerializeField]
-    private ClearBehavior _clearBehavior;
+    private ClearAllBehavior _clearBehavior;
 
     private DrawState[] _drawStates;
     private bool[] _didSpawn;

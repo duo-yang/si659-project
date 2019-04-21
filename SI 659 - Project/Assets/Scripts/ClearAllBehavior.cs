@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap.Unity.Examples;
 
-public class ClearBehavior : MonoBehaviour {
+public class ClearAllBehavior : MonoBehaviour {
 
   public GameObject blockRoot;
+  public SimpleFacingCameraCallbacks faceCamera;
 
   public static bool isEmpty = true;
 
@@ -25,12 +27,15 @@ public class ClearBehavior : MonoBehaviour {
 		
 	}
 
-  public void clearBlocks () {
-    for (int i = blockRoot.transform.childCount - 1; i >= 0; i--) {
-      Destroy(blockRoot.transform.GetChild(i).gameObject);
+  public void clearAllBlocks () {
+    if (faceCamera.isFacingCamera()) {
+      for (int i = blockRoot.transform.childCount - 1; i >= 0; i--) {
+        Destroy(blockRoot.transform.GetChild(i).gameObject);
+      }
+      if (_rend != null) _rend.material.SetColor("_EmissionColor", defaultColor);
+      isEmpty = true;
+      Debug.Log("Clear blocks");
     }
-    if (_rend != null) _rend.material.SetColor("_EmissionColor", defaultColor);
-    isEmpty = true;
   }
 
   public void newBlock() {

@@ -206,7 +206,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1696958250}
-        m_MethodName: clearBlocks
+        m_MethodName: clearAllBlocks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13311,6 +13311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockRoot: {fileID: 1617908478}
+  faceCamera: {fileID: 1272384241}
   emitColor: {r: 1, g: 0.21323532, b: 0.21323532, a: 0.616}
   defaultColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
 --- !u!23 &1696958251
@@ -15974,7 +15975,7 @@ GameObject:
   - component: {fileID: 1929425881}
   - component: {fileID: 1929425880}
   m_Layer: 0
-  m_Name: Gravity Button
+  m_Name: Force Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17601,6 +17602,23 @@ MonoBehaviour:
           m_Calls:
           - m_Target: {fileID: 537367371}
             m_MethodName: SetActive
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 1
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - enumValue: 120
+      callback:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1737012601}
+            m_MethodName: set_enabled
             m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}

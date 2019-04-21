@@ -58,6 +58,10 @@ namespace Leap.Unity.Examples {
       return Vector3.Dot((camera.transform.position - facingTransform.position).normalized, facingTransform.forward) > minAllowedDotProduct;
     }
 
+    public bool isFacingCamera() {
+      return _isFacingCamera;
+    }
+
   }
 
 }

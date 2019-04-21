@@ -47,7 +47,7 @@ public class EmitBehavior : MonoBehaviour {
   void setLegendColor(float legendValue, ValueChannel channel) {
     if (channel == ValueChannel.Light) {
       _legendColor = new Color(legendValue, legendValue, legendValue);
-      _rend.material.SetColor("_EmissionColor", _legendColor);
+      if (_rend != null) _rend.material.SetColor("_EmissionColor", _legendColor);
     } else if (channel == ValueChannel.Hue) {
       if (colorManager != null) _legendColor = Color.HSVToRGB(legendValue, colorManager.currentSaturation, colorManager.currentValue);
       Debug.Log(Slider.minHorizontalValue + ", " + Slider.maxHorizontalValue + ", " + legendMin + ", " + legendMax);
